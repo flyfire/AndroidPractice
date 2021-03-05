@@ -1,4 +1,4 @@
-package com.solarexsoft.androidpractice
+package com.solarexsoft.androidpractice.glide
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -15,9 +15,10 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.solarexsoft.androidpractice.R
 import kotlinx.android.synthetic.main.activity_main_backup.*
 
-class MainActivityBackup : AppCompatActivity() {
+class LoadFileUri : AppCompatActivity() {
     companion object {
         const val TAG = "MainActivity"
     }

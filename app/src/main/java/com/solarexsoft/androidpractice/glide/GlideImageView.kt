@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.solarexsoft.androidpractice
+package com.solarexsoft.androidpractice.glide
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -42,6 +42,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.util.Util
+import com.solarexsoft.androidpractice.R
 import java.nio.ByteBuffer
 import java.security.MessageDigest
 
