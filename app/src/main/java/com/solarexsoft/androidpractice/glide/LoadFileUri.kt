@@ -16,7 +16,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.solarexsoft.androidpractice.R
-import kotlinx.android.synthetic.main.activity_main_backup.*
+import kotlinx.android.synthetic.main.activity_load_file_uri.*
 
 class LoadFileUri : AppCompatActivity() {
     companion object {
@@ -26,7 +26,7 @@ class LoadFileUri : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_backup)
+        setContentView(R.layout.activity_load_file_uri)
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
             requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
         } else {
