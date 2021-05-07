@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".glide.LoadFileUri" />
+        <activity android:name=".nestedscrolling.NestedScrollingActivityL" />
     </application>
 
 </manifest>

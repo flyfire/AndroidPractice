@@ -159,7 +159,7 @@ class NestedScrollingChildL @JvmOverloads constructor(
         }
         if (realY != scrollY) {
             Log.d(TAG, "scrollTo() called with: x = $x, realY = $realY")
-            super.scrollTo(x, y)
+            super.scrollTo(x, realY)
         }
     }
 }

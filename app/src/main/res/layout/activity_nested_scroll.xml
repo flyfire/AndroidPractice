@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.solarexsoft.androidpractice.nestedscrolling.NestedScrollingParentL
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f0f"
+        android:text="SolarexSolarexSolarexSolarex" />
+    <com.solarexsoft.androidpractice.nestedscrolling.NestedScrollingChildL
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/content"
+            android:textColor="#f0f"
+            android:textSize="24sp"/>
+    </com.solarexsoft.androidpractice.nestedscrolling.NestedScrollingChildL>
+</com.solarexsoft.androidpractice.nestedscrolling.NestedScrollingParentL>
