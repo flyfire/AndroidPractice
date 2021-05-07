@@ -42,7 +42,7 @@ class NestedScrollingChildL @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         realHeight = 0
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        for (i in 0..childCount) {
+        for (i in 0 until childCount) {
             val view = getChildAt(i)
             val heightMeasureSpec = MeasureSpec.makeMeasureSpec(heightMeasureSpec, MeasureSpec.UNSPECIFIED)
             measureChild(view, widthMeasureSpec, heightMeasureSpec)
