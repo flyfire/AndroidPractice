@@ -59,12 +59,14 @@ open class GlideImageView : AppCompatImageView {
 
     var decodeFormat = Bitmap.Config.ARGB_8888
     var skipCache = false
+
     /**
      * When glide load image, it must use placeholder,
      * so if enablePlaceholder is false, will use deep copy current drawable as placeholder
      */
     var enablePlaceholder = true
-    var transition: TransitionOptions<DrawableTransitionOptions, Drawable>? = DrawableTransitionOptions.withCrossFade()
+    var transition: TransitionOptions<DrawableTransitionOptions, Drawable>? =
+        DrawableTransitionOptions.withCrossFade()
     var listener: ImageLoadListener? = null
     var extraOption: ((options: RequestOptions) -> Unit)? = null
 
@@ -76,6 +78,7 @@ open class GlideImageView : AppCompatImageView {
                 placeHolderDrawableRes = 0
             }
         }
+
     @ColorInt
     var errorHolderColor = 0
         set(value) {
@@ -84,6 +87,7 @@ open class GlideImageView : AppCompatImageView {
                 errorHolderDrawableRes = 0
             }
         }
+
     @DrawableRes
     var placeHolderDrawableRes = 0
         set(value) {
@@ -92,6 +96,7 @@ open class GlideImageView : AppCompatImageView {
                 placeHolderColor = 0
             }
         }
+
     @DrawableRes
     var errorHolderDrawableRes = 0
         set(value) {
@@ -116,13 +121,20 @@ open class GlideImageView : AppCompatImageView {
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.GlideImageView)
         placeHolderColor = typedArray.getColor(R.styleable.GlideImageView_placeHolderColor, 0)
-        placeHolderDrawableRes = typedArray.getResourceId(R.styleable.GlideImageView_placeHolderSrc, 0)
+        placeHolderDrawableRes =
+            typedArray.getResourceId(R.styleable.GlideImageView_placeHolderSrc, 0)
         errorHolderColor = typedArray.getColor(R.styleable.GlideImageView_errorHolderColor, 0)
-        errorHolderDrawableRes = typedArray.getResourceId(R.styleable.GlideImageView_errorHolderSrc, 0)
-        cornerRadius = typedArray.getDimensionPixelOffset(R.styleable.GlideImageView_cornerRadius, 0)
+        errorHolderDrawableRes =
+            typedArray.getResourceId(R.styleable.GlideImageView_errorHolderSrc, 0)
+        cornerRadius =
+            typedArray.getDimensionPixelOffset(R.styleable.GlideImageView_cornerRadius, 0)
         isCircular = typedArray.getBoolean(R.styleable.GlideImageView_isCircular, false)
         skipCache = typedArray.getBoolean(R.styleable.GlideImageView_skipCache, false)
         val format = typedArray.getInteger(R.styleable.GlideImageView_decodeFormat, 0)
@@ -298,7 +310,9 @@ open class GlideImageView : AppCompatImageView {
         when (scaleType) {
             ScaleType.CENTER_CROP -> transformationList.add(CenterCrop())
             ScaleType.CENTER_INSIDE, ScaleType.FIT_XY -> transformationList.add(CenterInside())
-            ScaleType.FIT_CENTER, ScaleType.FIT_START, ScaleType.FIT_END -> transformationList.add(FitCenter())
+            ScaleType.FIT_CENTER, ScaleType.FIT_START, ScaleType.FIT_END -> transformationList.add(
+                FitCenter()
+            )
             else -> {
             }
         }
@@ -329,7 +343,10 @@ open class GlideImageView : AppCompatImageView {
                 target: Target<Drawable>?,
                 isFirstResource: Boolean
             ): Boolean {
-                Log.d(TAG, "${this@GlideImageView.uri} -> ${this@GlideImageView.canceled} load failed")
+                Log.d(
+                    TAG,
+                    "${this@GlideImageView.uri} -> ${this@GlideImageView.canceled} load failed"
+                )
                 listener?.onLoadFailed()
                 if (canceled) return true
                 return false
@@ -342,7 +359,10 @@ open class GlideImageView : AppCompatImageView {
                 dataSource: DataSource?,
                 isFirstResource: Boolean
             ): Boolean {
-                Log.d(TAG, "${this@GlideImageView.uri} -> ${this@GlideImageView.canceled} load success")
+                Log.d(
+                    TAG,
+                    "${this@GlideImageView.uri} -> ${this@GlideImageView.canceled} load success"
+                )
                 listener?.onLoadSuccess(resource)
                 if (canceled) return true
                 return false
@@ -353,20 +373,28 @@ open class GlideImageView : AppCompatImageView {
     enum class CornerType {
         /** 所有角  */
         ALL,
+
         /** 左上  */
         LEFT_TOP,
+
         /** 左下  */
         LEFT_BOTTOM,
+
         /** 右上  */
         RIGHT_TOP,
+
         /** 右下  */
         RIGHT_BOTTOM,
+
         /** 左侧  */
         LEFT,
+
         /** 右侧  */
         RIGHT,
+
         /** 下侧  */
         BOTTOM,
+
         /** 上侧  */
         TOP
     }
@@ -476,7 +504,12 @@ open class GlideImageView : AppCompatImageView {
         /**
          * 画左下角
          */
-        private fun drawLeftBottomCorner(canvas: Canvas, paint: Paint, width: Float, height: Float) {
+        private fun drawLeftBottomCorner(
+            canvas: Canvas,
+            paint: Paint,
+            width: Float,
+            height: Float
+        ) {
             canvas.drawRect(RectF(0f, 0f, width, height - fRadius), paint)
             canvas.drawRect(RectF(fRadius, height - fRadius, width, height), paint)
             canvas.drawArc(RectF(0f, height - diameter, diameter, height), 90f, 90f, true, paint)
@@ -494,10 +527,21 @@ open class GlideImageView : AppCompatImageView {
         /**
          * 画右下角
          */
-        private fun drawRightBottomCorner(canvas: Canvas, paint: Paint, width: Float, height: Float) {
+        private fun drawRightBottomCorner(
+            canvas: Canvas,
+            paint: Paint,
+            width: Float,
+            height: Float
+        ) {
             canvas.drawRect(RectF(0f, 0f, width, height - fRadius), paint)
             canvas.drawRect(RectF(0f, height - fRadius, width - fRadius, height), paint)
-            canvas.drawArc(RectF(width - diameter, height - diameter, width, height), 0f, 90f, true, paint)
+            canvas.drawArc(
+                RectF(width - diameter, height - diameter, width, height),
+                0f,
+                90f,
+                true,
+                paint
+            )
         }
 
         /**
@@ -527,7 +571,13 @@ open class GlideImageView : AppCompatImageView {
             canvas.drawRect(RectF(0f, 0f, width, height - fRadius), paint)
             canvas.drawRect(RectF(fRadius, height - fRadius, width - fRadius, height), paint)
             canvas.drawArc(RectF(0f, height - diameter, diameter, height), 90f, 90f, true, paint)
-            canvas.drawArc(RectF(width - diameter, height - diameter, width, height), 0f, 90f, true, paint)
+            canvas.drawArc(
+                RectF(width - diameter, height - diameter, width, height),
+                0f,
+                90f,
+                true,
+                paint
+            )
         }
 
         /**
@@ -537,7 +587,13 @@ open class GlideImageView : AppCompatImageView {
             canvas.drawRect(RectF(0f, 0f, width - fRadius, height), paint)
             canvas.drawRect(RectF(width - fRadius, fRadius, width, height - fRadius), paint)
             canvas.drawArc(RectF(width - diameter, 0f, width, diameter), 270f, 90f, true, paint)
-            canvas.drawArc(RectF(width - diameter, height - diameter, width, height), 0f, 90f, true, paint)
+            canvas.drawArc(
+                RectF(width - diameter, height - diameter, width, height),
+                0f,
+                90f,
+                true,
+                paint
+            )
         }
 
         override fun equals(other: Any?): Boolean {

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
  * Created by houruhou on 3/5/21/5:55 PM
  * Desc:
  */
-class ListLiveData<T>: LiveData<ListHolder<T>>() {
+class ListLiveData<T> : LiveData<ListHolder<T>>() {
     val size: Int
         get() = value?.size() ?: -1
 

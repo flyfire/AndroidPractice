@@ -27,7 +27,11 @@ class LoadFileUri : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load_file_uri)
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
             requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
         } else {
             loadContentUri()
@@ -41,7 +45,8 @@ class LoadFileUri : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if ((grantResults.isNotEmpty() &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        ) {
             loadContentUri()
         }
     }
@@ -49,7 +54,8 @@ class LoadFileUri : AppCompatActivity() {
 
     @SuppressLint("CheckResult")
     private fun loadContentUri() {
-        val rb1 = Glide.with(this).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597298618864&di=065b0917ade52f7054d44164c902be3b&imgtype=0&src=http%3A%2F%2Fimg.meituan.net%2Favatar%2Fbf78c1bd3c7c569a87dbbe4d72ddc291103959.jpg")
+        val rb1 = Glide.with(this)
+            .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597298618864&di=065b0917ade52f7054d44164c902be3b&imgtype=0&src=http%3A%2F%2Fimg.meituan.net%2Favatar%2Fbf78c1bd3c7c569a87dbbe4d72ddc291103959.jpg")
         rb1.addListener(object : RequestListener<Drawable> {
             override fun onLoadFailed(
                 e: GlideException?,
