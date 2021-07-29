@@ -19,6 +19,7 @@
         <activity android:name=".glide.LoadFileUri" />
         <activity android:name=".nestedscrolling.NestedScrollingActivityL" />
         <activity android:name=".textviewtag.TextViewTagActivity" />
+        <activity android:name=".backgroundplay.MusicActivity" />
     </application>
 
 </manifest>
