@@ -20,6 +20,8 @@
         <activity android:name=".nestedscrolling.NestedScrollingActivityL" />
         <activity android:name=".textviewtag.TextViewTagActivity" />
         <activity android:name=".backgroundplay.MusicActivity" />
+
+        <service android:name=".backgroundplay.MusicService" />
     </application>
 
 </manifest>
